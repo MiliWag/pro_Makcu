@@ -1,0 +1,201 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+/*font-family: 'Pirata One', cursive;
+font-family: 'Roboto', sans-serif;*/
+
+/*----------------------------------------- index.html -------------------------*/
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+h1 {
+  margin: 4rem 0rem 2rem 0rem;
+  font-family: 'Pirata One', cursive;
+  font-size: 3.5rem;
+  text-align: center;
+  color: white;
+}
+
+.container {
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+}
+
+.congratulation {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+p {
+  color: white;
+  line-height: 1.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.button {
+  font-family: 'Pirata One', cursive;
+  font-size: 1.5rem;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+  border: white solid 2px;
+  border-radius: 10px;
+}
+
+.button:hover {
+  background-color: rgb(209, 209, 18);
+  color: white;
+}
+
+/*------------------------------------- hra.html----------------------------------*/
+
+.play {
+  max-width: 80vmin;
+  margin: 2rem auto 0rem auto;
+}
+
+.play-navigation {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.play-navigation__player {
+  padding: 0;
+}
+
+.play-navigation__link {
+  margin-top: 2rem;
+}
+
+.play-navigation__link a {
+  padding: 0.4rem 0.5rem 0.2rem 0.5rem;
+  border-radius: 10px;
+}
+
+.playfield {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  height: 80vmin;
+  background-color: black;
+}
+
+.playfield__box {
+  border: white solid 1px;
+  background: none;
+  width: 10%;
+  height: 10%;
+  padding: 0;
+}
+
+.playfield__box:hover,
+.playfield__box:focus {
+  background-color: rgb(68, 67, 67);
+}
+
+/* horní řada hracího pole*/
+.playfield__box:nth-child(-n + 9) {
+  border-width: 2px 1px 1px 1px;
+}
+
+/*pravá strana*/
+.playfield__box:nth-child(10n) {
+  border-width: 1px 2px 1px 1px;
+}
+
+/*levá strana*/
+.playfield__box:nth-child(10n + 1) {
+  border-width: 1px 1px 1px 2px;
+}
+
+/*dolní řada*/
+.playfield__box:nth-child(n + 91) {
+  border-width: 1px 1px 2px 1px;
+}
+
+.playfield__box:first-child {
+  border-width: 2px 1px 1px 2px;
+}
+
+.playfield__box:last-child {
+  border-width: 1px 2px 2px 1px;
+}
+
+.playfield__box:nth-child(10) {
+  border-width: 2px 2px 1px 1px;
+}
+
+.playfield__box:nth-child(91) {
+  border-width: 1px 1px 2px 2px;
+}
+
+/* styly pro javascript - kdo hraje */
+.circle-play,
+.cross-not-play {
+  width: 2rem;
+}
+
+.circle-not-play {
+  visibility: hidden;
+}
+
+.cross-not-play {
+  visibility: hidden;
+}
+
+.cross-play {
+  visibility: visible;
+  margin-bottom: -0.2rem;
+  margin-left: -2rem;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(0.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.playfield__box--content--circle {
+  background-image: url('images/yzo.svg');
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-size: 100%;
+  animation: zoom 0.15s 1 ease;
+}
+
+.playfield__box--content--cross {
+  background-image: url('images/nik.svg');
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-size: 100%;
+  animation: zoom 0.15s 1 ease;
+}
